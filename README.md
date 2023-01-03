@@ -14,6 +14,7 @@ The same project is built with each of these techniques. You'll find one folder 
 
 * [Instructions](#instructions)
 * [Creator](#creators)
+* [Collaborator](#collaborator)
 
 ## Instructions
 
@@ -26,6 +27,6 @@ Both XHR and Fetch API are in the links above.
 * [https://twitter.com/richardkalehoff](https://twitter.com/richardkalehoff)
 * [https://github.com/richardkalehoff](https://github.com/richardkalehoff)
 
-**Collaborator**
+## Collaborator
 
-* [Ali Helmi (LinkedIn)](https://www.linkedin.com/in/alihelmi)
+* <a href="https://www.linkedin.com/in/alihelmi" target="_blank">Ali Helmi (LinkedIn)</a>
