@@ -3,10 +3,10 @@
 This is the repo for [Udacity's Ajax course](). The course covers making asynchronous requests using three different methods:
 
 * the XHR object
-    * [XHR-Object](https://ahelmi365.github.io/course-ajax/lesson-1-async-w-xhr/)
+    * <a href="https://ahelmi365.github.io/course-ajax/lesson-1-async-w-xhr/" target="_blank">XHR-Object: LIVE DEMO</a>
 * jQuery's `.ajax()` method
 * the Fetch API
-    * [Fetch API](https://ahelmi365.github.io/course-ajax/lesson-3-async-w-fetch)
+    * <a href="https://ahelmi365.github.io/course-ajax/lesson-3-async-w-fetch" target="_blank">Fetch API: LIVE DEMO</a>
 
 The same project is built with each of these techniques. You'll find one folder for each.
 
