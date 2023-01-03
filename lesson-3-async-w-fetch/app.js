@@ -53,44 +53,43 @@
                     </figcaption>
                 </figure>
             `
-            responseContainer.insertAdjacentHTML('afterbegin', htmlContent);
         } else {
-            htmlContent =
-                `<div class="error-no-image>No image available</div>`
+            console.log("no imaga data !");
+            htmlContent = `<div class="error-no-image">No images available</div>`
+
         }
+        responseContainer.insertAdjacentHTML('afterbegin', htmlContent);
 
     }
 
     // function to add articles
 
     function addArticle(jsonData) {
-        console.log(jsonData.response.docs);
-        let htmlContent = document.createElement('ul');
-        if (jsonData && jsonData.response && jsonData.response.docs) {
+        let htmlContent = "";
+
+        if (jsonData && jsonData.response && jsonData.response.docs.length >0) {
+            console.log("Yes article data ");
+
             jsonData.response.docs.forEach(article => {
-                const li =
+                htmlContent =
                     `
-                <li class="article">
-                    <h2>
-                        <a href="${article.web_url}" target="_blank">${article.headline.main}</a>
-                    </h2>
-                    <p>${article.snippet}</p>
-                </li>
-            
-
-                `
-                htmlContent.insertAdjacentHTML('afterbegin', li);
-
+                    <ul>
+                        <li class="article">
+                            <h2> 
+                            <a href = "${article.web_url}" target="_blank"> ${article.headline.main} </a> 
+                            </h2>
+                            <p>${article.snippet}</p>
+                        </li>
+                    </ul>
+                    `
+                responseContainer.insertAdjacentHTML('beforeend', htmlContent);
             });
+        } else {
+            console.log("no article data ");
+            htmlContent = `<div class="error-no-articles">No article available</div>`;
+            responseContainer.insertAdjacentHTML('beforeend', htmlContent);
 
-        }else{
-            htmlContent.insertAdjacentHTML('beforeend', '<div class="error-no-articles">No article available</div>');
-
-            // htmlContent = `<div class="error-no-articles">No article available</div>`
         }
-        responseContainer.insertAdjacentHTML('beforeend', htmlContent);
     }
-
-
 
 })();

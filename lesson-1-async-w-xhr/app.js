@@ -61,7 +61,8 @@
         const data = JSON.parse(this.responseText);
 
         let htmlContent = "";
-        if (data && data.response && data.response.docs && data.response.docs.length >= 1) {
+        if (data && data.response && data.response.docs && data.response.docs.length >0) {
+            console.log("Yes article data");
 
             data.response.docs.forEach(article => {
                 htmlContent =
@@ -78,7 +79,11 @@
                 responseContainer.insertAdjacentHTML('beforeend', htmlContent);
             });
         } else {
-            htmlContent = `<div class="error-no-articles">No article available</div>`
+            console.log("No article data");
+
+            htmlContent = `<div class="error-no-articles">No article available</div>`;
+            responseContainer.insertAdjacentHTML('beforeend', htmlContent);
+
         }
     }
 
