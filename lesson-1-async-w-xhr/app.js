@@ -28,6 +28,7 @@
 
         // get the articles form NYT
         const nytRequest = new XMLHttpRequest();
+
         nytRequest.open('GET', `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=KwiLY7MT5u7bgIu35hw6Wlp8GnOsJKwi`)
         nytRequest.onload = addArticle;
         nytRequest.send();
@@ -43,7 +44,7 @@
             htmlContent =
                 `
                 <figure>
-                    <img src="${firstImage.urls.regular}" alt="firstImage.alt_description">
+                    <img src=${firstImage.urls.regular} alt="${firstImage.alt_description}">
                     <figcaption>
                         ${searchedForText} by ${firstImage.user.name}
                     </figcaption>
@@ -73,7 +74,7 @@
                             <p>${article.snippet}</p>
                         </li>
                     </ul>
-                `
+                    `
                 responseContainer.insertAdjacentHTML('beforeend', htmlContent);
             });
         } else {
