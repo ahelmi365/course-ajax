@@ -9,8 +9,6 @@
         headers: {
             Authorization: 'Client-ID HLemrgnvpPZVgueEpVqOdiC21Kl-MvsEtHclzyX1xdw'
         }
-
-
     }
     // fetch image api from unsplach.com
     form.addEventListener('submit', function (e) {
@@ -21,21 +19,17 @@
         // fetch unsplash api to get image
         const IMGURL = `https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`
         fetch(IMGURL, unsplachHTTPOptions)
-            .then(response => {
-                return response.json();
-            }).then(jsonData => {
-                addImage(jsonData);
-            })
+            .then(response => response.json())
+            .then(addImage)
+            .catch(e=> requestError(e,'image'));
 
         // fetch NY API to get articles
         const NYURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=KwiLY7MT5u7bgIu35hw6Wlp8GnOsJKwi`
-
         fetch(NYURL)
-            .then(response => {
-                return response.json();
-            }).then(jsonData => {
-                addArticle(jsonData);
-            })
+            .then(response => response.json())
+            .then(addArticle)
+            .catch(e => requestError(e,'Article'))
+
     });
 
     // function to add image
@@ -43,7 +37,7 @@
         let htmlContent = "";
         const firstImage = jsonData.results[0];
 
-        if (jsonData && jsonData.results && firstImage) {
+        if (firstImage) {
             htmlContent =
                 `
                 <figure>
@@ -63,11 +57,10 @@
     }
 
     // function to add articles
-
     function addArticle(jsonData) {
         let htmlContent = "";
 
-        if (jsonData && jsonData.response && jsonData.response.docs.length >0) {
+        if (jsonData && jsonData.response && jsonData.response.docs.length > 0) {
             console.log("Yes article data ");
 
             jsonData.response.docs.forEach(article => {
